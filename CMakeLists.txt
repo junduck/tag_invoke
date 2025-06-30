@@ -32,5 +32,9 @@ install(FILES
 )
 
 # example
-add_executable(tag_invoke_example example/example.cpp)
-target_link_libraries(tag_invoke_example PRIVATE tag_invoke)
+option(TAG_INVOKE_BUILD_EXAMPLES "Build example programs" OFF)
+
+if(TAG_INVOKE_BUILD_EXAMPLES)
+  add_executable(tag_invoke_example example/example.cpp)
+  target_link_libraries(tag_invoke_example PRIVATE tag_invoke)
+endif()
